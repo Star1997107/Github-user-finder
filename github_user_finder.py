@@ -61,7 +61,7 @@ class GitHubUserFinder:
             messagebox.showwarning("Ошибка ввода", "Поле поиска не может быть пустым!")
             return
 
-        url = f"https://api.github.com/users/{username}&quot"
+        url = f"https://api.github.com/users/{username}"
         try:
             response = requests.get(url)
             if response.status_code == 200:
@@ -95,10 +95,7 @@ class GitHubUserFinder:
             "followers": self.current_user['followers']
         }
 
-        if any(u['login'] ==
-
-
-user_data['login'] for u in self.favorites):
+        if any(u['login'] == user_data['login'] for u in self.favorites):
             messagebox.showinfo("Инфо", "Этот пользователь уже в избранном!")
             return
 
